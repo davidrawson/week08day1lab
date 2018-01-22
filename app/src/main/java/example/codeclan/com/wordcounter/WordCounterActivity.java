@@ -22,20 +22,12 @@ public class WordCounterActivity extends AppCompatActivity {
         textBlock = findViewById(R.id.editText);
         countButton = findViewById(R.id.button);
         wordCountView = findViewById(R.id.textView);
-
     }
 
     public void onCountButtonClicked(View button){
         String text = textBlock.getText().toString();
-
-        Log.d(getClass().toString(), "The text entered was " + text);
-
-        if (text == null || text.isEmpty()){
-            wordCountView.setText("The text block contained no words");
-        }else{
-            String[] words = text.split("\\s+");
-            wordCountView.setText("The number of words in the text block is " + words.length);
-        }
-
+//        Log.d(getClass().toString(), "The text entered was " + text);
+        wordCountView.setText(new WordCounter().countWords(text));
     }
+
 }
