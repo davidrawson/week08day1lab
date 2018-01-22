@@ -28,7 +28,14 @@ public class WordCounterActivity extends AppCompatActivity {
     public void onCountButtonClicked(View button){
         String text = textBlock.getText().toString();
 
-        Log.d(getClass().toString(), "The text entered was " + textBlock);
+        Log.d(getClass().toString(), "The text entered was " + text);
+
+        if (text == null || text.isEmpty()){
+            wordCountView.setText("The text block contained no words");
+        }else{
+            String[] words = text.split("\\s+");
+            wordCountView.setText("The number of words in the text block is " + words.length);
+        }
 
     }
 }
